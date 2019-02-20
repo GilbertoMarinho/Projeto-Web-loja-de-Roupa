@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+	
+		
+	
+	h1#titulo-principal{
+		
+		background-image: url(../img/sobre-background.jpg);
+		background-repeat: repeat-x; /*repetir apenas na horizontal*/
+		
+		
+	}
+	
+	h2{
+		border-bottom: 2px solid #333333;
+	}
+	
+	p:not(.sacola){/*selecionar todos os elementos p exceto os que tem class="sacola"*/
+		padding: 0 20px;/*espacamento a direita*/
+		text-align: justify;
+		text-indent:15px;/*espacamento paragrafo*/
+		font-size: 13px;
+	}
+	
+	.p::first-letter{ /*selecionar a primeira letra de todos os elementos p*/
+		font-weight: bold;
+	}
+	
+	
+	
+	:not(p) + p::first-line{
+		font-variant: small-caps;
+	}
+	/*selecione as primeiras linhas dos parágrafos( p::first-line) que não são precedidos por outros
+parágrafos(:not(p)).
+	
+	.caixa{ /*criando caixas com imagem e legenda centralizadas*/
+		background-color: #fdeded;
+		border: 2px solid #ccc;
+		text-align: center;
+		padding:15px;
+		margin: 30px;
+	}
+	
+	figcaption{
+		font-style: italic;
+			margin-top: 10px;
+	}
+	
+	.centro-dtc{
+		margin-left: auto;
+		margin-right: auto;
+		width: 550px;
+	}
+	
+	.familia-pelho{
+		float: right;
+		margin: 0 0 20px 20px;
+	}
+	

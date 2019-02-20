@@ -1,0 +1,419 @@
+	body{
+		font-family: 'PT Sans', sans serif;
+		color: #333333;
+	}
+	
+	.container{ /*centralizacao generica*/
+		margin: 0 auto;
+		width: 940px;
+	}
+	
+/*FORMATAÇÃO CABEÇALHO*/    
+	header{
+		position: relative;
+	}
+	/*posicionado abaixo e a direita em relacao ao header que é relative e pai*/
+	.menu-opcoes{
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+	}
+	
+	.menu-opcoes a:hover{ /*selecionar ao passar mouse*/
+		color:#007DC6;
+	}
+	
+	.menu-opcoes a:active{ /*selecionar ao clickar*/
+		color: #867DC6;
+	}
+	
+	.sacola{/*posicionado acima e a direita em relacão ao header que é relative e pai*/
+		position: absolute;
+		top :0px;
+		right: 0px;
+	
+		background-image: url(../img/sacola.png);
+		background-repeat: no-repeat;
+		background-position: top right;/*plano de fundo superior a direita*/
+		
+		
+		font-size: 14px;
+		text-align: right;
+		padding-right: 35px;
+		padding-top: 8px;
+		width: 140px;
+			
+	}
+	
+	.menu-opcoes ul{
+		font-size:15px;
+	}	
+	
+	.menu-opcoes a{
+		color: #003366;
+	}
+	
+	.menu-opcoes ul li {
+		display: inline; /*permite que outros objetos ocupem a mesma linha*/
+		margin-left: 20px;
+	}
+	
+	/*FORMATAÇÃO CENTRAL*/
+	
+	.busca, .menu-departamentos{
+		background-color: #DCDCDC;;
+		font-weight: bold;
+		text-transform: uppercase;
+		
+		margin-right: 10px;
+		width:230px;
+		
+		float: left; /*flutuará para a esquerda*/
+	}
+	
+	.menu-departamentos{
+		clear:left; /*não permitir elementos flutuantes a esquerda*/
+		margin-top: 10px; 
+		padding-bottom: 10px;
+	}
+	
+	/*busca*/
+	.busca h2, .busca form, .menu-departamentos h2{
+		margin:10px;
+	}
+	
+	.busca input[type=search] { 
+		width: 170px;
+	}
+	
+	.busca button{ 
+		/* adicionando imagem */ 
+		background-image: url(../img/busca.png);
+		background-repeat: no-repeat; border: none;
+		/* tamanho da imagem */ 
+		width: 20px; height: 20px;
+		/* imagem replacement */ 
+		text-indent: -9999px;
+}
+
+	/*menu de departamentos*/
+	.menu-departamentos li{
+		background-color: white;
+		margin-bottom:1px;
+		padding: 5px 10px;
+	}
+	.menu-departamentos a {
+	 		color: #333333;
+	 		text-decoration: none;
+	 }
+	 
+	.destaque { 
+			margin-top: 10px;
+		}
+		
+	/*sublistas do menu*/
+	.menu-departamentos li ul{ /*selecionar os filhos ul de li*/
+		display: none;
+	}
+	
+	.menu-departamentos li:hover ul{/*ao passar o mouse em li, selecionar os seus filhos ul*/
+		display:block;
+		
+	}
+	
+	.menu-departamentos ul ul li {/* selecionar os li netos de ul filhos de ul*/
+		background-color: #DCDCDC;
+	}
+	
+	.menu-departamentos ul ul a:before {/* selecionar os a netos de ul filhos de ul*/
+		content: '\272A'; /*injetar conteúdo*/
+		padding-right: 3px;
+	}
+		
+/*FORMATAÇÃO PAINEIS*/
+	.painel{ /*dividindo o espaço da tela entre os paineis*/
+		margin:10px 0px;
+		padding: 10px;
+		width: 445px;
+		
+		border-radius: 7px; /*arredondar as quatro bordas com 7px*/
+		box-shadow: 4px 4px 10px #999; /*sombra hori=4px vert=4px blur=10px cor=#999*/
+
+	}
+	
+	.novidades{
+		float: left;
+		
+		background-color: #F5DCDC; /*versoes mais antigas*/
+		background: linear-gradient(#F5DCDC, #BEBEF4);
+	}
+	
+	.mais-vendidos{
+		float: right;
+		
+		background-color: #DCDCF5;  /*versoes mais antigas*/
+		background: linear-gradient(#DCDCF5, #F4BEBE);
+	}
+	
+	.painel li{
+		display: inline-block;/*elementos colocados como linhas de texto, permite formatacao de tamanho e posicionamento*/
+		vertical-align: top;
+		width:140px;
+		
+		
+		margin:2px;
+		padding-bottom: 10px;
+		
+		transition: 1s ease-in; /*tempo e tipo de transicão das transformações na ida e na volta*/
+	}
+	
+	.painel li:hover{
+		background-color: rgba(255,255,255,0.8);
+		box-shadow: 0 0 5px #333;
+		transform: scale(1.2) rotate(-4deg); /*aumentar tamanho em 20%  e rotacionar -4deg*/			
+	}
+	
+	
+	
+	
+	.painel h2{
+		font-family: 'Bad Script'; /*carregando fonte do g web fontes*/
+		font-size:24px;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-shadow: 2px 2px 1px #fff;
+		
+		margin-bottom: 10px;
+	}
+	
+	.painel h2:before{ /*selecionar antes de h2*/
+		content:'\2756'; /*injetar conteudo*/
+		padding-right: 5px;
+		opacity: 0.4;
+	}
+	
+	.painel a{
+		 color: #333; 
+		 font-size: 14px; 
+		 text-align: center; 
+		 text-decoration: none;
+	}
+	
+	.painel li:nth-child(n+7){ /* esconde todos li a partir do setimo filho*/
+		display: none;
+	}
+	
+	.painel-aberto li:nth-child(n+7) { /*torna visivel todos os filhos li a partir do sétimo*/
+		display: inline-block;
+	}
+	
+	.painel button{
+		/*posicionamento*/
+		float: right;
+		margin-right: 10px;
+		padding: 10px;
+		position: relative;
+		margin-bottom: 10px;
+		
+		/*estilo*/
+		background-color: #333;
+		border: 0;
+		border-radius: 4px;
+		box-shadow: 1px 1px 3px rgba(30,30,30,0.5);
+		color: white;
+		text-decoration: none;
+		font-size: 1em;
+		text-shadow: 1px 0 1px black;
+		
+		transition: 0.3s;
+	}
+	
+	
+	.painel button:hover{
+		background-color: #393939;
+		box-shadow: 1px 0 20px rgba(200,200,120, 0.9);
+	}
+	
+	.painel button::after{
+		/*elemento vazio */
+		content: '';
+		height: 0px;
+		width: 0px;
+		display: block;
+		
+		/*criando um triangulo*/
+		border-top: 10px solid #333;
+		border-right: 10px solid transparent;
+		border-left: 10px solid transparent;
+		
+		position: absolute; 
+		top: 100%;
+		left: 50%; 
+		margin-left: -5px;
+		
+	/* animação */ 
+	transition: 0.3s;		
+	}
+	
+	
+	.painel button:hover::after{
+		border-top-color: #393939;
+	}
+	
+
+/*FORMATAÇÃO DO RODAPÉ*/
+	footer{
+		
+		background-image: url(../img/fundo-rodape.png);
+		clear: both; /*evitar que footer ocupe o espaço dos elementos flutuantes ao seu redor*/		
+		
+	}
+	
+	
+	footer .container{
+		position:relative;
+		padding: 20px 0px;
+	}
+	
+	.social{
+		position: absolute;
+		top: 12px;
+		right:0px;
+	}
+	
+	.social li{ /*icones em linha*/
+		float: left;
+		margin-left: 25px;
+		 
+	}
+	
+	.social a{
+		/*Acertar o tamanho do elemento para ficar igual ao da imagem*/
+		height: 32px;
+		width: 32px;
+		
+		/*encondendo texto renderizando fora da página*/
+		display:block;
+		text-indent: -9999px; 
+	}
+	/*Colocar a imagem como background do elemento;*/
+	
+	.social a[href*="facebook.com"]{/*busca tags 'a' que tenham um atributo href, contendo "facebook.com" em qualquer posicao*/
+		background-image: url(../img/facebook.png);
+		
+	}
+
+	.social a[href*="twitter.com"]{
+		background-image: url(../img/twitter.png);
+		
+	}
+	
+	.social a[href*="plus.google.com"]{
+		background-image: url(../img/googleplus.png);
+		
+	}
+	
+/*FORMATAÇÃO PARA DISPOSITIVOS MOBILE*/
+@media (max-width: 920px){
+		
+	.container{
+		width: 96%;
+	}
+	
+	header h1{ /*centralizar logotipo*/
+		text-align: center;
+	}
+		
+	header img{
+		max-width: 50%;
+	}
+	
+	.sacola{/*esconder informacoes secundarias*/
+		display: none;
+	}
+	
+	.menu-opcoes { /*absolute para static, para fluir abaixo do logo*/
+		 position: static; 
+		 text-align: center;
+	}
+	
+	.menu-opcoes ul li{ /*aumentar espaco entre os links*/
+		display:inline-block;
+		margin:5px;
+	}
+		
+	.busca, .menu-departamentos, .banner-destaque img{
+		/*forcando elementos a formar uma linha vertical*/
+		width:100%;
+		margin-right:0px;
+	}
+	
+	.painel{
+		width: auto;/*largura automatica ocupando toda a horizontal*/
+	}
+		
+	.painel li{
+		width:30%; /*cada cx de imagem em uma linha  vai ocupar 30% da largura horizontal*/
+	}
+	
+	.painel li img{
+		width:100%;
+	}
+	
+		/*FORMATAÇÃO celulares paisagem*/
+		@media (min-width:480px){
+			header h1{
+				margin:5px 0;
+			}
+			
+			.menu-menu-departamentos{
+				padding-bottom: 10px;
+				margin-bottom: 10px;
+				
+			}
+			
+			.menu-departamentos nav > ul{/*selecionar apenas os ul filhos DIRETOS de nav*/
+			column-count: 2; /*quebra o elemento em duas colunas*/
+				
+			} 
+			
+		}
+		
+		/*FORMATAÇÃO Tablets*/
+		@media (min-width: 720px) { 
+			header h1 { 
+				text-align: left;
+			}
+
+			.menu-opcoes { 
+				position: absolute;
+			}
+			
+			.sacola { 
+				display: block;
+			}
+			
+			.painel li { 
+				width: 15%;
+			}
+			
+			.busca, .menu-departamentos { 
+			margin-right: 1%; width: 30%;
+			}
+			
+			.menu-departamentos nav > ul{
+				 column-count: 1;
+			}
+			
+			.banner-destaque img { 
+				width: 69%;
+				} 
+
+}
+		
+	
+	
+	
+	}
+		
+	

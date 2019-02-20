@@ -1,0 +1,242 @@
+.fundo{ /*plano de fundo*/
+	background-color:#F2F2F2;
+	margin-top: 1em;
+	border-top: 2px solid #ccc;
+	
+}
+
+
+
+.cores label::after { /*criando circulos apos label */
+	content: '';
+	display: block;
+	
+	border-radius: 50%; /*borda circular*/
+	width: 50px;
+	height: 50px;
+	
+	cursor: pointer;
+	border: 6px solid rgba(0,0,0,0.0);
+	transition: 1s;
+}
+
+/*pintar bolinhas e fazer um espacamento lateral*/
+label[for=verde]::after{
+	background-color:#33cc66;
+	left: 0;
+}
+
+label[for=rosa]::after{
+	background-color:#ff6666;
+	left: 60px;
+}
+
+label[for=azul]::after{
+	background-color:#444466;
+	left: 120px;
+}
+
+.cores label::after { /*aumentar a borda nao diminui tamanho do objeto*/
+box-sizing: border-box;
+}
+
+	/*personalizar a bolinha selecionada*/
+.cores input:checked + label::after {
+	border: 6px solid rgba(0,0,0,0.3);
+}/*input:checked pseudo classe seleciona elemento input que esteja marvado*/
+
+/*formatacao da bolinha ao passar o moude sobre*/
+.cores label:hover::after { 
+	border: 6px solid rgba(0,0,0,0.1);
+}
+
+	/*esconder os inputs do tipo radio*/ 
+.cores input[type=radio]{
+	display:none;
+}
+
+/*esconder as imagens que não tem o radio selecionado*/
+.cores input:not(:checked)  + label img{ /*seleciona o label img adjacente a um input not checked*/ 
+	display:none;
+}
+
+/*fieldset relative*/
+.cores {
+position: relative;
+padding-top: 90px;
+}
+
+/* bolinhas 30px no topo em relacao a fieldset*/
+.cores label::after {
+position: absolute;
+top: 30px;
+}
+
+/*formatacao posicional para o firefox*/
+.cores legend {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+/*imagem nao vazar da tela*/
+.cores label img {
+display: block; 
+max-width: 100%;
+
+border: 2px solid #CCC;
+}
+
+.produto{
+	color:#333;
+	line-height: 1.3;/*altura elmemtos inline*/
+	margin-top: 2em;
+	
+}
+
+.produto h1{
+	font-size: 1.80em;
+}
+
+.produto p {
+		font-size: 1.2em;
+		font-style: italic;
+		margin-bottom: 1em;
+}
+
+.produto legend{
+	display: block;
+	font: bold 0.9em/2.5 arial;
+	text-transform: uppercase;
+}
+
+/*destaque no botao comprar*/
+.comprar {
+	background-color:#91BD3C;
+	border: none;
+	color: #333;
+	
+	font-size:1.4em;
+	text-transform: uppercase;
+	box-shadow: 0 1px 3px #777;
+	
+	display:block;
+	padding:0.5em 1em;;
+	margin: 1.4em 0;
+}
+
+/*Formatação descrição e tabela*/
+.detalhes{
+	padding: 2em 0;
+}
+
+.detalhes h2{
+	font-size: 1.5em;
+	line-height: 2;
+}
+
+.detalhes p{
+	margin: 1em 0;
+	font-size: 1em;
+	line-height: 1.5em;
+	max-width: 36em;
+}
+
+.detalhes table{
+	border-spacing: 0.2em;
+	border-collapse: separate;
+}
+
+.detalhes thead{
+	background-color: #999;
+}
+
+.detalhes thead th{
+	font-weight: bold;
+	padding:0.3em 1em;
+	text-align: center;
+	
+}
+
+.detalhes td{
+	padding:0.3em;
+	
+}
+
+.detalhes tr:nth-child(2n){ /*lista zebrada*/
+	background-color: #ccc;
+}
+
+.detalhes td:first-child { /*seletor de primeiro filho*/
+	font-style: italic;
+}
+
+.tamanho output{
+	display: inline-block;
+	height: 44px;
+	width: 44px;
+	
+	/*centralizando o texto no circulo*/
+	line-height: 44px;
+	text-align: center;
+	
+	/* criando borda circular*/
+	border: 3px solid #666;
+	border-radius: 50px;
+	color: #777;
+	
+}
+
+
+/*design para telas maiores*/
+
+@media (min-width: 500px) { 
+	.detalhes { 
+		font-size: 1.2em;
+	}
+
+
+@media (min-width:600px){
+	.produto{
+		position:relative;
+		padding-left: 40%;/*deixa um espaco em branco a esquerda para a foto ocupar*/
+		
+		font-size: 1.2em;
+	}
+	
+	.cores{
+		position: static; /*evitar que a foto se posicione em relacao a mim */
+		padding:0px;
+	
+	}
+	
+	.cores legend{
+		position: static; /*volta ao fluxo da pagina*/
+	}
+	
+	.cores label img{
+		position:absolute;/* imagens se posicionam a esquerda com relaçăo a .produto*/
+		top: 0px;
+		left: 0px;
+		
+		max-width:35%; /*imagens năo vazam para fora do espaço determinado*/
+		max-height: 100%;
+	}			
+	
+	.cores label:after { /*bolinhas flutuam uma ao lado da outra*/ 
+		position: static; 
+		float: left;
+		
+		margin-right: 10px; /*espacamento entre bolinhas*/
+}
+	.produto fieldset { 
+		/*posionar os campos tamanho e cor alinhados*/
+		display: inline-block; 
+		vertical-align: top;
+		
+		margin: 1em 0; 
+		min-width: 240px; 
+		width: 45%;
+}
+	
+}
